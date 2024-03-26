@@ -13,11 +13,11 @@ class ModelTest(TestCase):
         email = "test@example.com"
         password = "testpass123"
         user = get_user_model().objects.create_user(
-            email = email,
-            password = password,
+            email=email,
+            password=password,
         )
 
-        self.assertEqual(user.email,email)
+        self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
 
     def test_new_user_email_normalized(self):
@@ -30,7 +30,7 @@ class ModelTest(TestCase):
         ]
         for email, expected in sample_emails:
             user = get_user_model().objects.create_user(email, 'sample123')
-            self.assertEqual(user.email,expected)
+            self.assertEqual(user.email, expected)
 
     def test_new_user_without_email_reises_error(self):
         """Test that create a user without an email raises a VauleError"""
